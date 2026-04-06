@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Contable</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>📊 Sistema Contable</h1>
+  </header>
+  <button id="openModal" class="help-btn">❓ Cómo usar</button>
+  <main class="container">
+
+    <!-- FORM -->
+    <section class="card">
+      <h2>➕ Cargar Asiento</h2>
+
+      <table class="tabla-input">
+        <thead>
+          <tr>
+            <th>Cuenta</th>
+            <th>Debe</th>
+            <th>Haber</th>
+          </tr>
+        </thead>
+        <tbody id="asientoBody"></tbody>
+      </table>
+
+      <div class="actions">
+        <button id="agregarLinea">+ Línea</button>
+        <button id="guardarAsiento" class="primary">Guardar Asiento</button>
+      </div>
+
+      <p id="error" class="error"></p>
+    </section>
+
+    <!-- ASIENTOS -->
+    <section class="card">
+      <h2>📋 Asientos</h2>
+      <div id="listaAsientos" class="grid"></div>
+    </section>
+
+    <!-- BOTÓN -->
+    <div class="center">
+      <button id="procesarTodo" class="primary big">
+        🚀 Generar Libros y Balances
+      </button>
+    </div>
+
+    <!-- MAYOR -->
+    <section class="card">
+      <h2>📘 Libro Mayor</h2>
+      <div id="mayorContainer" class="grid"></div>
+    </section>
+
+    <!-- BALANCE -->
+    <section class="card">
+      <h2>📊 Balance de Sumas y Saldos</h2>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Cuenta</th>
+              <th>Debe</th>
+              <th>Haber</th>
+              <th>Saldo Deudor</th>
+              <th>Saldo Acreedor</th>
+            </tr>
+          </thead>
+          <tbody id="balanceBody"></tbody>
+          <tfoot>
+            <tr>
+              <th>Total</th>
+              <th id="totalDebe"></th>
+              <th id="totalHaber"></th>
+              <th id="totalSaldoDeudor"></th>
+              <th id="totalSaldoAcreedor"></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- RESULTADO -->
+    <section class="card">
+      <h2>📈 Resultado del Ejercicio</h2>
+      <p class="resultado" id="resultadoFinal"></p>
+    </section>
+
+    <!-- BALANCE GENERAL -->
+    <section class="card">
+      <h2>🏦 Balance General</h2>
+
+      <div class="balance-grid">
+        <div>
+          <h3>Activo</h3>
+          <ul id="activoList"></ul>
+        </div>
+
+        <div>
+          <h3>Pasivo</h3>
+          <ul id="pasivoList"></ul>
+        </div>
+
+        <div>
+          <h3>Patrimonio</h3>
+          <ul id="patrimonioList"></ul>
+        </div>
+      </div>
+
+      <div class="totales">
+        <p>Activo: <span id="totalActivo"></span></p>
+        <p>Pasivo: <span id="totalPasivo"></span></p>
+        <p>Patrimonio: <span id="totalPatrimonio"></span></p>
+      </div>
+    </section>
+    <script type="module" src="./main.js"></script>
+  </main>
+  <div id="modal" class="modal">
+  <div class="modal-content"><span id="closeModal" class="close">&times;</span>
+
+<h2>📌 Guía completa de uso</h2>
+
+<h3>➕ 1. Cargar un asiento</h3>
+<ul>
+  <li>Escribí el nombre de la cuenta (usá el autocompletado).</li>
+  <li>Ingresá un valor en <b>Debe</b> o en <b>Haber</b> (no ambos).</li>
+  <li>Podés agregar más líneas con <b>"+ Línea"</b>.</li>
+  <li>Si escribe cuentas que no aparecen en el autocompletado → <b>puede dar error</b>.</li>
+</ul>
+
+<h3>⚠️ Reglas importantes</h3>
+<ul>
+  <li>El <b>Debe y el Haber deben ser iguales</b>.</li>
+  <li>No podés poner valores en Debe y Haber en la misma fila.</li>
+  <li>Las cuentas deben existir (usá el autocompletado).</li>
+</ul>
+
+<h3>🧾 Filas vacías</h3>
+<ul>
+  <li>Si dejás una fila completamente vacía → <b>se ignora</b>.</li>
+  <li>Si escribís una cuenta pero no ponés monto → <b>puede dar error</b>.</li>
+</ul>
+
+<h3>💰 Cómo escribir los montos</h3>
+<ul>
+  <li>Usá <b>punto (.)</b> para decimales → Ej: <b>1500.50</b></li>
+  <li>No uses coma (,) → puede generar errores</li>
+  <li>No hace falta poner $</li>
+</ul>
+
+<h3>📋 Guardar asientos</h3>
+<ul>
+  <li>Presioná <b>"Guardar Asiento"</b>.</li>
+  <li>El sistema valida automáticamente.</li>
+  <li>Guarda un asiento completo primero, luego escribís el siguiente y todos los que tengas.</li>
+</ul>
+
+<h3>🚀 Procesar información</h3>
+<ul>
+  <li>Presioná <b>"Generar Libros y Balances"</b>.</li>
+  <li>Se generan automáticamente:</li>
+  <ul>
+    <li>📘 Libro Mayor</li>
+    <li>📊 Balance de Sumas y Saldos</li>
+    <li>📈 Resultado del Ejercicio</li>
+    <li>🏦 Balance General</li>
+  </ul>
+</ul>
+
+<h3>📘 Libro Mayor</h3>
+<ul>
+  <li>Cada cuenta se muestra en forma de <b>T</b>.</li>
+  <li>Izquierda = Debe / Derecha = Haber</li>
+  <li>Se calcula automáticamente el saldo.</li>
+</ul>
+
+<h3>📊 Balance</h3>
+<ul>
+  <li>Muestra todas las cuentas con sus movimientos.</li>
+  <li>Los totales deben coincidir.</li>
+</ul>
+
+<h3>📈 Resultado</h3>
+<ul>
+  <li>Ventas - Costos - Gastos = Resultado</li>
+</ul>
+
+<h3>🏦 Balance General</h3>
+<ul>
+  <li>Activo = Pasivo + Patrimonio</li>
+  <li>El resultado del ejercicio se suma automáticamente.</li>
+</ul>
+
+<h3>💡 Consejos y Consideraciones</h3>
+<ul>
+  <li>Usá siempre el autocompletado.</li>
+  <li>Revisá los montos antes de guardar.</li>
+  <li>Si algo no cuadra, revisá Debe vs Haber.</li>
+  <li>El sistema no hace un análisis dimensional de los asientos, por lo que puede haber errores o inconsistencias en los resultados finales si los asientos están mal hechos.</li>
+</ul>
+</div>
+</body>
+</html>

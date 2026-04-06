@@ -1,0 +1,321 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #e5e7eb;
+  color: #1f2933;
+}
+
+/* HEADER */
+header {
+  background: #334155;
+  color: #f8fafc;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 3px solid #1e293b;
+}
+
+/* LAYOUT */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* CARD */
+.card {
+  background: #f1f5f9;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  border: 1px solid #cbd5e1;
+}
+
+/* TITULOS */
+h1, h2, h3 {
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+/* TABLAS */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.6rem;
+  text-align: center;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+/* 🔥 IMPORTANTE para autocomplete */
+td {
+  position: relative;
+}
+
+thead {
+  background: #cbd5e1;
+  color: #1e293b;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 0.45rem;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  background: #f8fafc;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* 🔽 AUTOCOMPLETE */
+.autocomplete-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #f8fafc;
+  border: 1px solid #94a3b8;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 9999;
+  border-radius: 6px;
+}
+
+.autocomplete-item {
+  padding: 6px;
+  cursor: pointer;
+}
+
+.autocomplete-item:hover {
+  background: #cbd5e1;
+}
+
+/* BOTONES */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #94a3b8;
+  color: white;
+  transition: 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+button.primary {
+  background: #2563eb;
+}
+
+button.big {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+.center {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+/* ERROR */
+.error {
+  color: #dc2626;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+/* 📘 LIBRO MAYOR REAL EN T */
+.mayor-box {
+  background: #e2e8f0;
+  border: 1px solid #94a3b8;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Título */
+.mayor-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Caja de la T */
+.t-box {
+  border-top: 3px solid #1e293b; /* 🔥 línea horizontal */
+  position: relative;
+  margin-top: 5px;
+}
+
+/* Encabezado */
+.t-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+/* Cuerpo */
+.t-body {
+  display: flex;
+  position: relative;
+  min-height: 120px;
+}
+
+/* 🔥 línea vertical */
+.t-body::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #1e293b;
+}
+
+/* Columnas */
+.col {
+  width: 50%;
+  padding: 5px;
+  text-align: center;
+}
+
+/* Líneas */
+.linea {
+  border-bottom: 1px solid #64748b;
+  margin: 4px 0;
+  padding: 2px;
+}
+
+/* Totales */
+.totales {
+  margin-top: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Saldo */
+.saldo {
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* BALANCE GENERAL */
+.balance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.totales {
+  margin-top: 1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 600px) {
+  .actions {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .balance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .totales {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+}
+
+/* BOTÓN AYUDA */
+.help-btn {
+  margin-top: 10px;
+  background: #475569;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* CONTENIDO */
+.modal-content {
+  background: #f1f5f9;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  position: relative;
+  animation: fadeIn 0.2s ease;
+}
+
+/* CERRAR */
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-content {
+  max-height: 80%;
+  overflow-y: auto;
+  margin-top: 50px;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
