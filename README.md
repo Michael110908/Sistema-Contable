@@ -27,7 +27,7 @@ Está diseñado como una herramienta educativa y práctica para estudiantes de c
 ---
 
 ## 🧱 Tecnologías Utilizadas
-
+ 
 * HTML5
 * CSS3 (responsive, sin frameworks)
 * JavaScript (ES Modules)
