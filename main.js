@@ -1,9 +1,9 @@
-import { generarMayor, calcularSaldo } from "./logic/mayor.js";
-import { generarBalance } from "./logic/balance.js";
-import { generarBalanceGeneral } from "./logic/general.js";
-import { setupAutocomplete } from "./autocomplete.js";
-import { calcularResultado } from "./logic/resultado.js";
-import { format } from "./utils.js";
+import { generarMayor, calcularSaldo } from "./logic/core/mayor.js";
+import { generarBalance } from "./logic/core/balance.js";
+import { generarBalanceGeneral } from "./logic/core/general.js";
+import { setupAutocomplete } from "./ui/autocomplete.js";
+import { calcularResultado } from "./logic/core/resultado.js";
+import { format } from "./utils/utils.js";
 
 const asientos = [];
 let cuentas = {};
