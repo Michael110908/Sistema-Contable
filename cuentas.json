@@ -91,6 +91,34 @@
         "tipo": "activo",
         "naturaleza": "deudora"
     },
+    "Sobrante de Caja":{
+        "tipo": "activo",
+        "naturaleza":"deudora"
+    },
+    "Sobrante de Mercadería":{
+        "tipo": "activo",
+        "naturaleza":"deudora"
+    },
+    "Deudores Morosos":{
+        "tipo": "activo",
+        "naturaleza":"deudora"
+    },
+    "Deudores en Gestión Judicial":{
+        "tipo": "activo",
+        "naturaleza":"deudora"
+    },
+    "Productos en Proceso":{
+        "tipo": "activo",
+        "naturaleza":"deudora"
+    },
+    "Productos Terminados":{
+        "tipo": "activo",
+        "naturaleza":"deudora"
+    },
+    "Materia Prima":{
+        "tipo": "activo",
+        "naturaleza":"deudora"
+    },
 
 
 
@@ -136,6 +164,14 @@
     },
     "Socio E - Cuenta Particular": {
         "tipo": "pasivo",
+        "naturaleza": "acreedora"
+    },
+    "Faltante de Caja":{
+        "tipo":"pasivo",
+        "naturaleza": "acreedora"
+    },
+    "Faltante de Mercadería":{
+        "tipo":"pasivo",
         "naturaleza": "acreedora"
     },
 
@@ -228,10 +264,19 @@
         "subtipo": "gasto",
         "naturaleza": "deudora"
     },
+    "Deudores Incobrables": {
+        "tipo": "resultado",
+        "subtipo": "gasto",
+        "naturaleza": "deudora"
+    },
 
 
 
     "Arca IVA Saldo": {
+        "tipo": "dinamica",
+        "naturaleza": "mixta"
+    },
+    "Cambio de Cotización": {
         "tipo": "dinamica",
         "naturaleza": "mixta"
     }
