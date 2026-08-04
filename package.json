@@ -1,0 +1,10 @@
+{
+  "name": "sistema-contable-web",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/static-server.mjs",
+    "test": "node tests/contabilidad.test.js"
+  }
+}

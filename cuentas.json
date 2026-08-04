@@ -1,291 +1,276 @@
 {
-    "Caja": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Banco x C/C": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Banco x P/F": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Banco x C/A": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Deudores por Ventas": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Documentos a Cobrar": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Valores a Depositar": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Mercadería (E.I.)": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Mercadería (E.F.)": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Maquinarias": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Inmuebles": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Instalaciones": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Rodados": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Muebles y Útiles": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Equipos de Computación": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Tarjeta de Crédito": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Socio A - Cuenta Aporte": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Socio B - Cuenta Aporte": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Socio C - Cuenta Aporte": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Socio D - Cuenta Aporte": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Socio E - Cuenta Aporte": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Compras": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Iva - Crédito Fiscal": {
-        "tipo": "activo",
-        "naturaleza": "deudora"
-    },
-    "Sobrante de Caja":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-    "Sobrante de Mercadería":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-    "Deudores Morosos":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-    "Deudores en Gestión Judicial":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-    "Productos en Proceso":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-    "Productos Terminados":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-    "Materia Prima":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-
-
-
-    "Proveedores": {
-        "tipo": "pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Acreedores Varios": {
-        "tipo": "pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Documentos a Pagar": {
-        "tipo": "pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Valores a Pagar": {
-        "tipo": "pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Iva - Débito Fiscal": {
-        "tipo": "pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Valores Diferidos a Pagar": {
-        "tipo": "pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Socio A - Cuenta Particular": {
-        "tipo": "pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Socio B - Cuenta Particular": {
-        "tipo": "pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Socio C - Cuenta Particular": {
-        "tipo": "pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Socio D - Cuenta Particular": {
-        "tipo": "pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Socio E - Cuenta Particular": {
-        "tipo": "pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Faltante de Caja":{
-        "tipo":"pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Faltante de Mercadería":{
-        "tipo":"pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Mano de Obra":{
-        "tipo":"pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Gastos Indirectos de Fabricación":{
-        "tipo":"pasivo",
-        "naturaleza": "acreedora"
-    },
-
-
-
-    "Capital": {
-        "tipo": "patrimonio",
-        "naturaleza": "acreedora"
-    },
-    "Capital Social": {
-        "tipo": "patrimonio",
-        "naturaleza": "acreedora"
-    },
-    "Reservas": {
-        "tipo": "patrimonio",
-        "naturaleza": "acreedora"
-    },
-    "Resultado del Ejercicio": {
-        "tipo": "patrimonio",
-        "naturaleza": "acreedora"
-    },
-
-
-
-    "Ventas": {
-        "tipo": "resultado",
-        "subtipo": "ingreso",
-        "naturaleza": "acreedora"
-    },
-    "Intereses Ganados": {
-        "tipo": "resultado",
-        "subtipo": "ingreso",
-        "naturaleza": "acreedora"
-    },
-    "Descuentos Obtenidos": {
-        "tipo": "resultado",
-        "subtipo": "ingreso",
-        "naturaleza": "acreedora"
-    },
-    "Bonificaciones Obtenidas": {
-        "tipo": "resultado",
-        "subtipo": "ingreso",
-        "naturaleza": "acreedora"
-    },
-    "Alquileres obtenidos": {
-        "tipo": "resultado",
-        "subtipo": "ingreso",
-        "naturaleza": "acreedora"
-    },
-
-
-
-    "Costo de Mercaderías Vendidas": {
-        "tipo": "resultado",
-        "subtipo": "costo",
-        "naturaleza": "deudora"
-    },
-    "Alquileres Perdidos": {
-        "tipo": "resultado",
-        "subtipo": "gasto",
-        "naturaleza": "deudora"
-    },
-    "Gastos Generales": {
-        "tipo": "resultado",
-        "subtipo": "gasto",
-        "naturaleza": "deudora"
-    },
-    "Intereses Perdidos": {
-        "tipo": "resultado",
-        "subtipo": "gasto",
-        "naturaleza": "deudora"
-    },
-    "Descuentos Cedidos": {
-        "tipo": "resultado",
-        "subtipo": "gasto",
-        "naturaleza": "deudora"
-    },
-    "Bonificaciones Cedidas": {
-        "tipo": "resultado",
-        "subtipo": "gasto",
-        "naturaleza": "deudora"
-    },
-    "Sueldos y Jornales": {
-        "tipo": "resultado",
-        "subtipo": "gasto",
-        "naturaleza": "deudora"
-    },
-    "Impuestos": {
-        "tipo": "resultado",
-        "subtipo": "gasto",
-        "naturaleza": "deudora"
-    },
-    "Deudores Incobrables": {
-        "tipo": "resultado",
-        "subtipo": "gasto",
-        "naturaleza": "deudora"
-    },
-
-
-
-    "Arca IVA Saldo": {
-        "tipo": "dinamica",
-        "naturaleza": "mixta"
-    },
-    "Cambio de Cotización": {
-        "tipo": "dinamica",
-        "naturaleza": "mixta"
-    }
+  "Caja": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Banco x C/C": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Banco x P/F": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Banco x C/A": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Deudores por Ventas": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Documentos a Cobrar": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Valores a Depositar": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Mercaderia (E.I.)": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Mercaderia (E.F.)": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Maquinarias": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Inmuebles": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Instalaciones": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Rodados": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Muebles y Utiles": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Equipos de Computacion": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Tarjeta de Credito": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Socio A - Cuenta Aporte": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Socio B - Cuenta Aporte": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Socio C - Cuenta Aporte": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Socio D - Cuenta Aporte": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Socio E - Cuenta Aporte": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Compras": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Iva - Credito Fiscal": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Sobrante de Caja": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Sobrante de Mercaderia": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Deudores Morosos": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Deudores en Gestion Judicial": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Productos en Proceso": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Productos Terminados": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Materia Prima": {
+    "tipo": "activo",
+    "naturaleza": "deudora"
+  },
+  "Proveedores": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Acreedores Varios": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Documentos a Pagar": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Valores a Pagar": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Iva - Debito Fiscal": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Valores Diferidos a Pagar": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Socio A - Cuenta Particular": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Socio B - Cuenta Particular": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Socio C - Cuenta Particular": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Socio D - Cuenta Particular": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Socio E - Cuenta Particular": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Faltante de Caja": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Faltante de Mercaderia": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Mano de Obra": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Gastos Indirectos de Fabricacion": {
+    "tipo": "pasivo",
+    "naturaleza": "acreedora"
+  },
+  "Capital": {
+    "tipo": "patrimonio",
+    "naturaleza": "acreedora"
+  },
+  "Capital Social": {
+    "tipo": "patrimonio",
+    "naturaleza": "acreedora"
+  },
+  "Reservas": {
+    "tipo": "patrimonio",
+    "naturaleza": "acreedora"
+  },
+  "Resultado del Ejercicio": {
+    "tipo": "patrimonio",
+    "naturaleza": "acreedora"
+  },
+  "Ventas": {
+    "tipo": "resultado",
+    "subtipo": "ingreso",
+    "naturaleza": "acreedora"
+  },
+  "Intereses Ganados": {
+    "tipo": "resultado",
+    "subtipo": "ingreso",
+    "naturaleza": "acreedora"
+  },
+  "Descuentos Obtenidos": {
+    "tipo": "resultado",
+    "subtipo": "ingreso",
+    "naturaleza": "acreedora"
+  },
+  "Bonificaciones Obtenidas": {
+    "tipo": "resultado",
+    "subtipo": "ingreso",
+    "naturaleza": "acreedora"
+  },
+  "Alquileres obtenidos": {
+    "tipo": "resultado",
+    "subtipo": "ingreso",
+    "naturaleza": "acreedora"
+  },
+  "Costo de Mercaderias Vendidas": {
+    "tipo": "resultado",
+    "subtipo": "costo",
+    "naturaleza": "deudora"
+  },
+  "Alquileres Perdidos": {
+    "tipo": "resultado",
+    "subtipo": "gasto",
+    "naturaleza": "deudora"
+  },
+  "Gastos Generales": {
+    "tipo": "resultado",
+    "subtipo": "gasto",
+    "naturaleza": "deudora"
+  },
+  "Intereses Perdidos": {
+    "tipo": "resultado",
+    "subtipo": "gasto",
+    "naturaleza": "deudora"
+  },
+  "Descuentos Cedidos": {
+    "tipo": "resultado",
+    "subtipo": "gasto",
+    "naturaleza": "deudora"
+  },
+  "Bonificaciones Cedidas": {
+    "tipo": "resultado",
+    "subtipo": "gasto",
+    "naturaleza": "deudora"
+  },
+  "Sueldos y Jornales": {
+    "tipo": "resultado",
+    "subtipo": "gasto",
+    "naturaleza": "deudora"
+  },
+  "Impuestos": {
+    "tipo": "resultado",
+    "subtipo": "gasto",
+    "naturaleza": "deudora"
+  },
+  "Deudores Incobrables": {
+    "tipo": "resultado",
+    "subtipo": "gasto",
+    "naturaleza": "deudora"
+  },
+  "Arca IVA Saldo": {
+    "tipo": "dinamica",
+    "naturaleza": "mixta"
+  },
+  "Cambio de Cotizacion": {
+    "tipo": "dinamica",
+    "naturaleza": "mixta"
+  }
 }

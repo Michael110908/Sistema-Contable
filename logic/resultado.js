@@ -1,5 +1,3 @@
-// 📊 CALCULAR RESULTADO DEL EJERCICIO USANDO cuentas.json
-
 export function calcularResultado(balance, cuentas) {
   let ingresos = 0;
   let costos = 0;
@@ -14,7 +12,6 @@ export function calcularResultado(balance, cuentas) {
 
     if (!info || info.tipo !== "resultado") return;
 
-    // 🔹 determinar monto (según saldo)
     const monto =
       item.saldoAcreedor > 0
         ? item.saldoAcreedor

@@ -13,7 +13,6 @@ export function generarBalanceGeneral(balance, cuentas, resultadoObj) {
 
     const tipo = info.tipo;
 
-    // 🔵 ACTIVO
     if (tipo === "activo") {
       const monto = item.saldoDeudor;
 
@@ -23,7 +22,6 @@ export function generarBalanceGeneral(balance, cuentas, resultadoObj) {
       }
     }
 
-    // 🔴 PASIVO
     if (tipo === "pasivo") {
       const monto = item.saldoAcreedor;
 
@@ -33,7 +31,6 @@ export function generarBalanceGeneral(balance, cuentas, resultadoObj) {
       }
     }
 
-    // 🟡 PATRIMONIO
     if (tipo === "patrimonio") {
       const monto = item.saldoAcreedor;
 
@@ -43,7 +40,6 @@ export function generarBalanceGeneral(balance, cuentas, resultadoObj) {
       }
     }
 
-    // 🔥 CUENTAS DINÁMICAS (IVA, etc.)
     if (tipo === "dinamica") {
       if (item.saldoDeudor > 0) {
         activo.push({
@@ -63,7 +59,6 @@ export function generarBalanceGeneral(balance, cuentas, resultadoObj) {
     }
   });
 
-  // 🔥 RESULTADO DEL EJERCICIO
   if (resultadoObj) {
     const resultado = resultadoObj.resultado;
 

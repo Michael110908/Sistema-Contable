@@ -1,5 +1,3 @@
-// 📊 GENERAR BALANCE DE SUMAS Y SALDOS
-
 export function generarBalance(mayor, calcularSaldo) {
   const resultado = [];
 
@@ -10,8 +8,6 @@ export function generarBalance(mayor, calcularSaldo) {
 
   for (const cuenta in mayor) {
     const { debe, haber } = mayor[cuenta];
-
-    // 🔹 usamos la función universal del mayor
     const {
       totalDebe: d,
       totalHaber: h,
@@ -19,17 +15,14 @@ export function generarBalance(mayor, calcularSaldo) {
       tipoSaldo
     } = calcularSaldo(cuenta, debe, haber);
 
-    // 🔹 separar saldo en columnas
     const saldoDeudor = tipoSaldo === "Deudor" ? saldo : 0;
     const saldoAcreedor = tipoSaldo === "Acreedor" ? saldo : 0;
 
-    // 🔹 acumular totales
     totalDebe += d;
     totalHaber += h;
     totalSaldoDeudor += saldoDeudor;
     totalSaldoAcreedor += saldoAcreedor;
 
-    // 🔹 guardar fila
     resultado.push({
       cuenta,
       debe: d,

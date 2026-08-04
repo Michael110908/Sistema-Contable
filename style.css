@@ -10,7 +10,6 @@ body {
   color: #1f2933;
 }
 
-/* HEADER */
 header {
   background: #334155;
   color: #f8fafc;
@@ -19,47 +18,64 @@ header {
   border-bottom: 3px solid #1e293b;
 }
 
-/* LAYOUT */
+header h1 {
+  color: #f8fafc;
+}
+
 .container {
   max-width: 1200px;
   margin: auto;
   padding: 1rem;
 }
 
-/* CARD */
+.top-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
 .card {
   background: #f1f5f9;
   padding: 1rem;
   margin-bottom: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
   border: 1px solid #cbd5e1;
 }
 
-/* TITULOS */
-h1, h2, h3 {
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+h1,
+h2,
+h3 {
   color: #1e293b;
   margin-bottom: 0.5rem;
 }
 
-/* TABLAS */
 table {
   width: 100%;
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   padding: 0.6rem;
   text-align: center;
   border-bottom: 1px solid #cbd5e1;
 }
 
-/* 🔥 IMPORTANTE para autocomplete */
 td {
   position: relative;
 }
 
-thead {
+thead,
+tfoot {
   background: #cbd5e1;
   color: #1e293b;
 }
@@ -68,7 +84,6 @@ thead {
   overflow-x: auto;
 }
 
-/* INPUT */
 input {
   width: 100%;
   padding: 0.45rem;
@@ -82,7 +97,6 @@ input:focus {
   border-color: #2563eb;
 }
 
-/* 🔽 AUTOCOMPLETE */
 .autocomplete-list {
   position: absolute;
   top: 100%;
@@ -105,11 +119,16 @@ input:focus {
   background: #cbd5e1;
 }
 
-/* BOTONES */
 .actions {
   display: flex;
   gap: 10px;
   margin-top: 10px;
+}
+
+.actions.compact {
+  margin-top: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 button {
@@ -117,7 +136,7 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  background: #94a3b8;
+  background: #64748b;
   color: white;
   transition: 0.2s;
 }
@@ -136,48 +155,57 @@ button.big {
   font-size: 1.1rem;
 }
 
+.help-btn {
+  background: #475569;
+}
+
 .center {
   text-align: center;
   margin: 1.5rem 0;
 }
 
-/* ERROR */
 .error {
   color: #dc2626;
   margin-top: 10px;
   font-weight: bold;
 }
 
-/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 1rem;
 }
 
-/* 📘 LIBRO MAYOR REAL EN T */
+.empty-state {
+  color: #64748b;
+  grid-column: 1 / -1;
+}
+
+.asiento-card,
 .mayor-box {
   background: #e2e8f0;
   border: 1px solid #94a3b8;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 10px;
 }
 
-/* Título */
+.asiento-subtitle {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
 .mayor-title {
   text-align: center;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-/* Caja de la T */
 .t-box {
-  border-top: 3px solid #1e293b; /* 🔥 línea horizontal */
+  border-top: 3px solid #1e293b;
   position: relative;
   margin-top: 5px;
 }
 
-/* Encabezado */
 .t-header {
   display: flex;
   justify-content: space-between;
@@ -185,14 +213,12 @@ button.big {
   padding: 5px 10px;
 }
 
-/* Cuerpo */
 .t-body {
   display: flex;
   position: relative;
   min-height: 120px;
 }
 
-/* 🔥 línea vertical */
 .t-body::before {
   content: "";
   position: absolute;
@@ -203,34 +229,29 @@ button.big {
   background: #1e293b;
 }
 
-/* Columnas */
 .col {
   width: 50%;
   padding: 5px;
   text-align: center;
 }
 
-/* Líneas */
 .linea {
   border-bottom: 1px solid #64748b;
   margin: 4px 0;
   padding: 2px;
 }
 
-/* Totales */
-.totales {
+.mayor-totals {
   margin-top: 8px;
   text-align: center;
   font-weight: bold;
 }
 
-/* Saldo */
 .saldo {
   text-align: center;
   margin-top: 4px;
 }
 
-/* BALANCE GENERAL */
 .balance-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -241,41 +262,18 @@ ul {
   list-style: none;
 }
 
-.totales {
+.balance-totals {
   margin-top: 1rem;
   font-weight: bold;
   display: flex;
   justify-content: space-around;
 }
 
-/* 📱 RESPONSIVE */
-@media (max-width: 600px) {
-  .actions {
-    flex-direction: column;
-  }
-
-  button {
-    width: 100%;
-  }
-
-  .balance-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .totales {
-    flex-direction: column;
-    gap: 5px;
-    text-align: center;
-  }
+.resultado {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
-/* BOTÓN AYUDA */
-.help-btn {
-  margin-top: 10px;
-  background: #475569;
-}
-
-/* MODAL */
 .modal {
   display: none;
   position: fixed;
@@ -287,35 +285,69 @@ ul {
   background: rgba(0, 0, 0, 0.6);
 }
 
-/* CONTENIDO */
 .modal-content {
   background: #f1f5f9;
-  margin: 10% auto;
+  margin: 50px auto;
   padding: 20px;
   width: 90%;
-  max-width: 500px;
-  border-radius: 12px;
+  max-width: 540px;
+  max-height: 80%;
+  overflow-y: auto;
+  border-radius: 8px;
   position: relative;
   animation: fadeIn 0.2s ease;
 }
 
-/* CERRAR */
+.modal-content li {
+  margin-bottom: 0.45rem;
+}
+
 .close {
   position: absolute;
   right: 15px;
   top: 10px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
   font-size: 24px;
-  cursor: pointer;
+  line-height: 1;
+  background: #475569;
 }
 
-.modal-content {
-  max-height: 80%;
-  overflow-y: auto;
-  margin-top: 50px;
+@media (max-width: 700px) {
+  .section-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .actions,
+  .actions.compact {
+    flex-direction: column;
+    justify-content: stretch;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .balance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .balance-totals {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
 }
 
-/* ANIMACIÓN */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

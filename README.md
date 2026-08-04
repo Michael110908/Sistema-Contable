@@ -1,219 +1,71 @@
-# 📊 Sistema Contable Web
+# Sistema Contable Web
 
-Aplicación web desarrollada en **JavaScript Vanilla** para la gestión y generación automática de información contable a partir de asientos manuales.
+Aplicacion web educativa desarrollada con HTML, CSS y JavaScript vanilla para cargar asientos contables y generar informacion basica de cierre.
 
----
+## Funcionalidades
 
-## 🚀 Descripción
+- Carga manual de asientos contables.
+- Autocompletado de cuentas desde `cuentas.json`.
+- Validacion de Debe y Haber.
+- Libro Mayor en formato T.
+- Balance de Sumas y Saldos.
+- Resultado del Ejercicio.
+- Balance General.
+- Persistencia local de asientos con `localStorage`.
+- Datos de ejemplo para probar el flujo completo.
 
-Este proyecto permite cargar asientos contables y generar automáticamente:
+## Estructura
 
-* 📘 Libro Mayor (formato en T)
-* 📊 Balance de Sumas y Saldos
-* 📈 Estado de Resultados
-* 🏦 Balance General
-
-Está diseñado como una herramienta educativa y práctica para estudiantes de contabilidad y sistemas.
-
----
-
-## 🎯 Objetivos del Proyecto
-
-* Facilitar la comprensión de los procesos contables
-* Automatizar cálculos repetitivos
-* Reducir errores humanos en balances
-* Servir como base para un sistema contable más avanzado
-
----
-
-## 🧱 Tecnologías Utilizadas
- 
-* HTML5
-* CSS3 (responsive, sin frameworks)
-* JavaScript (ES Modules)
-* JSON (gestión de cuentas)
-
----
-
-## ⚙️ Funcionalidades
-
-### ➕ Carga de Asientos
-
-* Ingreso manual de cuentas
-* Autocompletado dinámico desde `cuentas.json`
-* Soporte para múltiples líneas por asiento
-
-### ✅ Validaciones
-
-* Igualdad entre Debe y Haber
-* Verificación de cuentas existentes
-* Prevención de doble imputación en una misma línea
-* Manejo de decimales con precisión
-
-### 📘 Libro Mayor
-
-* Representación en formato de "T"
-* Separación clara entre Debe y Haber
-* Cálculo automático de saldos
-* Identificación de saldo deudor/acreededor
-
-### 📊 Balance de Sumas y Saldos
-
-* Consolidación de movimientos por cuenta
-* Totales generales
-* Saldo deudor y acreedor por cuenta
-
-### 📈 Estado de Resultados
-
-* Clasificación automática:
-
-  * Ingresos
-  * Costos
-  * Gastos
-* Cálculo del resultado del ejercicio
-
-### 🏦 Balance General
-
-* Clasificación de cuentas:
-
-  * Activo
-  * Pasivo
-  * Patrimonio Neto
-* Soporte para cuentas dinámicas (ej: IVA)
-* Integración del resultado del ejercicio
-
-### 🧠 Sistema Inteligente de Cuentas
-
-* Configuración externa mediante `cuentas.json`
-* Soporte para:
-
-  * tipo (activo, pasivo, patrimonio, resultado, dinámica)
-  * subtipo (ingreso, costo, gasto)
-  * naturaleza (deudora, acreedora, mixta)
-
----
-
-## 📁 Estructura del Proyecto
-
-```
-📦 proyecto
- ┣ 📂 logic
- ┃ ┣ 📄 mayor.js
- ┃ ┣ 📄 balance.js
- ┃ ┣ 📄 general.js
- ┃ ┗ 📄 resultado.js
- ┣ 📄 main.js
- ┣ 📄 autocomplete.js
- ┣ 📄 utils.js
- ┣ 📄 cuentas.json
- ┣ 📄 index.html
- ┗ 📄 styles.css
+```text
+.
+├── index.html
+├── style.css
+├── main.js
+├── autocomplete.js
+├── utils.js
+├── cuentas.json
+├── logic
+│   ├── mayor.js
+│   ├── balance.js
+│   ├── resultado.js
+│   └── general.js
+├── tests
+│   └── contabilidad.test.js
+├── package.json
+├── netlify.toml
+└── vercel.json
 ```
 
----
+## Uso local
 
-## 📌 Uso de la Aplicación
+La aplicacion usa modulos JavaScript y carga `cuentas.json` con `fetch`, por lo que conviene ejecutarla desde un servidor local.
 
-### 1. Cargar un asiento
+```bash
+npm start
+```
 
-* Ingresar la cuenta (usar autocompletado)
-* Completar Debe o Haber
+Luego abrir:
 
-### 2. Agregar líneas
+```text
+http://localhost:8080
+```
 
-* Utilizar el botón **"+ Línea"**
+## Pruebas
 
-### 3. Guardar asiento
+```bash
+npm test
+```
 
-* El Debe debe ser igual al Haber
+Las pruebas verifican el flujo principal de calculo: Libro Mayor, Balance de Sumas y Saldos, Resultado del Ejercicio y Balance General.
 
-### 4. Generar resultados
+## Despliegue
 
-* Presionar **"Generar Libros y Balances"**
+El proyecto es estatico y puede publicarse en GitHub Pages, Netlify o Vercel.
 
----
+- Netlify usa `netlify.toml`.
+- Vercel usa `vercel.json`.
+- GitHub Pages puede publicar directamente desde la raiz del repositorio.
 
-## ⚠️ Consideraciones Importantes
+## Estado
 
-### 💰 Formato de números
-
-* Usar punto (.) para decimales → `1500.50`
-* No usar coma (,)
-
-### 🧾 Filas vacías
-
-* Se ignoran automáticamente
-
-### ❌ Errores comunes
-
-* Cuenta inexistente
-* Debe ≠ Haber
-* Valores en ambas columnas (Debe y Haber)
-
----
-
-## 🔄 Persistencia de Datos
-
-Actualmente:
-
-* Los datos se almacenan en memoria
-
-Recomendado:
-
-* Implementar `localStorage` para persistencia
-
----
-
-## 🌐 Despliegue
-
-Aplicación 100% frontend, puede ser desplegada en:
-
-* Netlify
-* Vercel
-* GitHub Pages
-
----
-
-## 🧪 Estado del Proyecto
-
-✔ Versión funcional (v1)
-✔ Estable para uso educativo
-⚠️ No apto para uso profesional real (aún)
-
----
-
-## 🔮 Mejoras Futuras
-
-* Persistencia con base de datos
-* Exportación a PDF
-* Soporte multiempresa
-* Control de períodos contables
-* Generación automática de asientos
-* Modo oscuro
-* Validaciones contables avanzadas
-
----
-
-## 🧠 Conceptos Contables Implementados
-
-* Partida doble
-* Naturaleza de cuentas
-* Saldos deudores y acreedores
-* Resultado del ejercicio
-* Ecuación patrimonial
-
----
-
-## 👨‍💻 Autor
-
-Proyecto desarrollado como práctica integradora de:
-
-* Programación web
-* Lógica contable
-* Diseño de sistemas
-
----
-
-## 📜 Licencia
-
-Uso libre con fines educativos.
+Version funcional para uso educativo. No reemplaza un sistema contable profesional ni contempla todavia periodos, multiempresa, auditoria, exportacion formal o permisos de usuarios.
