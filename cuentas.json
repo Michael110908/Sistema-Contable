@@ -3,6 +3,10 @@
     "tipo": "activo",
     "naturaleza": "deudora"
   },
+    "Caja U$S": {
+      "tipo": "activo",
+        "naturaleza": "deudora"
+    },
   "Banco x C/C": {
     "tipo": "activo",
     "naturaleza": "deudora"
