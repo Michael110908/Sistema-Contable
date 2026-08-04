@@ -1,51 +1,41 @@
-// 📊 GENERAR BALANCE DE SUMAS Y SALDOS
+export function setupAutocomplete(input, cuentas) {
+  let container;
 
-export function generarBalance(mayor, calcularSaldo) {
-  const resultado = [];
+  input.addEventListener("input", () => {
+    const value = input.value.toLowerCase();
 
-  let totalDebe = 0;
-  let totalHaber = 0;
-  let totalSaldoDeudor = 0;
-  let totalSaldoAcreedor = 0;
+    if (container) container.remove();
 
-  for (const cuenta in mayor) {
-    const { debe, haber } = mayor[cuenta];
+    if (!value) return;
 
-    // 🔹 usamos la función universal del mayor
-    const {
-      totalDebe: d,
-      totalHaber: h,
-      saldo,
-      tipoSaldo
-    } = calcularSaldo(cuenta, debe, haber);
+    container = document.createElement("div");
+    container.classList.add("autocomplete-list");
 
-    // 🔹 separar saldo en columnas
-    const saldoDeudor = tipoSaldo === "Deudor" ? saldo : 0;
-    const saldoAcreedor = tipoSaldo === "Acreedor" ? saldo : 0;
+    const rect = input.getBoundingClientRect();
 
-    // 🔹 acumular totales
-    totalDebe += d;
-    totalHaber += h;
-    totalSaldoDeudor += saldoDeudor;
-    totalSaldoAcreedor += saldoAcreedor;
+    container.style.left = rect.left + "px";
+    container.style.top = rect.bottom + "px";
+    container.style.width = rect.width + "px";
 
-    // 🔹 guardar fila
-    resultado.push({
-      cuenta,
-      debe: d,
-      haber: h,
-      saldoDeudor,
-      saldoAcreedor
-    });
-  }
+    Object.keys(cuentas)
+      .filter(c => c.toLowerCase().includes(value))
+      .forEach(cuenta => {
+        const item = document.createElement("div");
+        item.textContent = cuenta;
+        item.classList.add("autocomplete-item");
 
-  return {
-    cuentas: resultado,
-    totales: {
-      totalDebe,
-      totalHaber,
-      totalSaldoDeudor,
-      totalSaldoAcreedor
-    }
-  };
+        item.onclick = () => {
+          input.value = cuenta;
+          container.remove();
+        };
+
+        container.appendChild(item);
+      });
+
+    document.body.appendChild(container);
+  });
+
+  document.addEventListener("click", () => {
+    if (container) container.remove();
+  });
 }
