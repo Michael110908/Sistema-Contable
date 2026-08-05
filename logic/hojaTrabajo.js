@@ -13,7 +13,6 @@ import { redondear } from "../utils.js";
 // cuentas: contenido de cuentas.json
 
 export function generarHojaTrabajo(balance, ajustes, cuentas) {
-  // 1) Sumar Debe/Haber de los ajustes por cuenta
   const ajusteSums = {};
 
   ajustes.forEach(asiento => {
@@ -28,7 +27,6 @@ export function generarHojaTrabajo(balance, ajustes, cuentas) {
     });
   });
 
-  // 2) Reunir todas las cuentas involucradas (las del balance + las nuevas por ajuste)
   const nombres = new Set([
     ...balance.cuentas.map(c => c.cuenta),
     ...Object.keys(ajusteSums)
@@ -51,9 +49,6 @@ export function generarHojaTrabajo(balance, ajustes, cuentas) {
 
     const ajuste = ajusteSums[cuenta] || { debe: 0, haber: 0 };
 
-    // 🔥 El saldo original se trata como "debe"/"haber" equivalente
-    // y se le suman los movimientos de ajuste (misma columna suma, columna
-    // contraria resta) para obtener el Saldo Ajustado.
     const debeEq = orig.saldoDeudor + ajuste.debe;
     const haberEq = orig.saldoAcreedor + ajuste.haber;
 
@@ -71,46 +66,40 @@ export function generarHojaTrabajo(balance, ajustes, cuentas) {
     let rp = 0;
 
     if (info) {
+      // 🔵 ACTIVO
       if (info.tipo === "activo") {
-        activo = sdoAjustDeudor;
+        if (info.subtipo === "regularizadora") {
+          activo = -sdoAjustAcreedor; // Va al Activo restando
+        } else {
+          activo = sdoAjustDeudor;
+        }
       }
 
+      // 🔴 PASIVO Y PATRIMONIO
       if (info.tipo === "pasivo" || info.tipo === "patrimonio") {
         pasivoPN = sdoAjustAcreedor;
       }
 
+      // 🔄 DINÁMICAS PATRIMONIALES (Ej: IVA)
       if (info.tipo === "dinamica") {
         activo = sdoAjustDeudor;
         pasivoPN = sdoAjustAcreedor;
       }
 
-      // R.N. = Resultado Negativo (costos y gastos) | R.P. = Resultado Positivo (ingresos)
+      // 📈 RESULTADOS (Incluye ingresos, gastos, costos y dinámicas de resultado)
       if (info.tipo === "resultado") {
-        if (info.subtipo === "ingreso") {
-          rp = sdoAjustAcreedor;
-          rn = sdoAjustDeudor; // contrapartida infrecuente
-        } else {
-          // costo o gasto
-          rn = sdoAjustDeudor;
-          rp = sdoAjustAcreedor; // contrapartida infrecuente
-        }
+        rn = sdoAjustDeudor;   // Toda pérdida / gasto tiene saldo deudor
+        rp = sdoAjustAcreedor; // Toda ganancia / ingreso tiene saldo acreedor
       }
     }
 
     filas.push({
       cuenta,
-      sumasDebe: orig.debe,
-      sumasHaber: orig.haber,
-      saldoDeudor: orig.saldoDeudor,
-      saldoAcreedor: orig.saldoAcreedor,
-      ajusteDebe: ajuste.debe,
-      ajusteHaber: ajuste.haber,
-      sdoAjustDeudor,
-      sdoAjustAcreedor,
-      activo,
-      pasivoPN,
-      rn,
-      rp
+      sumasDebe: orig.debe, sumasHaber: orig.haber,
+      saldoDeudor: orig.saldoDeudor, saldoAcreedor: orig.saldoAcreedor,
+      ajusteDebe: ajuste.debe, ajusteHaber: ajuste.haber,
+      sdoAjustDeudor, sdoAjustAcreedor,
+      activo, pasivoPN, rn, rp
     });
 
     subtotales.sumasDebe += orig.debe;
@@ -127,33 +116,25 @@ export function generarHojaTrabajo(balance, ajustes, cuentas) {
     subtotales.rp += rp;
   });
 
-  // 3) Resultado del Ejercicio = Ingresos (R.P.) - Costos y Gastos (R.N.)
-  //    Se usa como "ficha" (plug) para cerrar/igualar ambos pares de columnas.
   const resultado = redondear(subtotales.rp - subtotales.rn);
-
   let resultadoFila = null;
 
   if (resultado > 0) {
-    // Ganancia → aumenta el Patrimonio y cierra el Estado de Resultados por R.N. (gastos)
-    resultadoFila = { pasivoPN: resultado, rn: resultado, rp: 0 };
+    // Ganancia: El Activo es mayor. Para cuadrar, la "ficha" va al Pasivo+P.N.
+    resultadoFila = { activo: 0, pasivoPN: resultado, rn: resultado, rp: 0 };
   } else if (resultado < 0) {
-    // Pérdida → aumenta el Patrimonio, como ficha, y cierra el Estado de Resultados por R.P. (ingresos)
-    resultadoFila = { pasivoPN: Math.abs(resultado), rn: 0, rp: Math.abs(resultado) };
+    // Pérdida: El Pasivo+P.N. es mayor. Para cuadrar, la "ficha" va al Activo.
+    resultadoFila = { activo: Math.abs(resultado), pasivoPN: 0, rn: 0, rp: Math.abs(resultado) };
   }
 
   const totales = { ...subtotales };
 
   if (resultadoFila) {
+    totales.activo += resultadoFila.activo; // Sumamos al activo si corresponde
     totales.pasivoPN += resultadoFila.pasivoPN;
     totales.rn += resultadoFila.rn;
     totales.rp += resultadoFila.rp;
   }
 
-  return {
-    filas,
-    subtotales,
-    resultado,
-    resultadoFila,
-    totales
-  };
+  return { filas, subtotales, resultado, resultadoFila, totales };
 }

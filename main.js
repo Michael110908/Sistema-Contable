@@ -32,6 +32,10 @@ fetch("./cuentas.json")
     limpiarFormularioAjuste();
     renderAsientos();
     renderAjustes();
+  })
+
+  .catch(error => {
+    console.error("Hubo un error cargando las cuentas:", error);
   });
 
 // 🔹 HELPERS DE FORMULARIO (compartidos entre Asientos y Ajustes) -----
@@ -570,7 +574,8 @@ function renderHojaTrabajo(hoja) {
   tbody.innerHTML = "";
   tfoot.innerHTML = "";
 
-  const celda = v => (v && v > 0) ? format(v) : "—";
+  // Ahora permite números negativos (para las regularizadoras) y solo oculta si es 0
+  const celda = v => (typeof v === "number" && v !== 0) ? format(v) : "—";
 
   if (hoja.filas.length === 0) {
     tbody.innerHTML = `<tr><td colspan="13">No hay cuentas para mostrar todavía.</td></tr>`;

@@ -1,41 +1,51 @@
-export function setupAutocomplete(input, cuentas) {
-  let container;
+// 📊 GENERAR BALANCE DE SUMAS Y SALDOS
 
-  input.addEventListener("input", () => {
-    const value = input.value.toLowerCase();
+export function generarBalance(mayor, calcularSaldo) {
+  const resultado = [];
 
-    if (container) container.remove();
+  let totalDebe = 0;
+  let totalHaber = 0;
+  let totalSaldoDeudor = 0;
+  let totalSaldoAcreedor = 0;
 
-    if (!value) return;
+  for (const cuenta in mayor) {
+    const { debe, haber } = mayor[cuenta];
 
-    container = document.createElement("div");
-    container.classList.add("autocomplete-list");
+    // 🔹 usamos la función universal del mayor
+    const {
+      totalDebe: d,
+      totalHaber: h,
+      saldo,
+      tipoSaldo
+    } = calcularSaldo(cuenta, debe, haber);
 
-    const rect = input.getBoundingClientRect();
+    // 🔹 separar saldo en columnas
+    const saldoDeudor = tipoSaldo === "Deudor" ? saldo : 0;
+    const saldoAcreedor = tipoSaldo === "Acreedor" ? saldo : 0;
 
-    container.style.left = rect.left + "px";
-    container.style.top = rect.bottom + "px";
-    container.style.width = rect.width + "px";
+    // 🔹 acumular totales
+    totalDebe += d;
+    totalHaber += h;
+    totalSaldoDeudor += saldoDeudor;
+    totalSaldoAcreedor += saldoAcreedor;
 
-    Object.keys(cuentas)
-      .filter(c => c.toLowerCase().includes(value))
-      .forEach(cuenta => {
-        const item = document.createElement("div");
-        item.textContent = cuenta;
-        item.classList.add("autocomplete-item");
+    // 🔹 guardar fila
+    resultado.push({
+      cuenta,
+      debe: d,
+      haber: h,
+      saldoDeudor,
+      saldoAcreedor
+    });
+  }
 
-        item.onclick = () => {
-          input.value = cuenta;
-          container.remove();
-        };
-
-        container.appendChild(item);
-      });
-
-    document.body.appendChild(container);
-  });
-
-  document.addEventListener("click", () => {
-    if (container) container.remove();
-  });
+  return {
+    cuentas: resultado,
+    totales: {
+      totalDebe,
+      totalHaber,
+      totalSaldoDeudor,
+      totalSaldoAcreedor
+    }
+  };
 }
