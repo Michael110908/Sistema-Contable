@@ -11,28 +11,22 @@ export function calcularResultado(balance, cuentas) {
 
   balance.cuentas.forEach(item => {
     const info = cuentas[item.cuenta];
-
     if (!info || info.tipo !== "resultado") return;
 
-    // 🔹 determinar monto (según saldo)
-    const monto =
-      item.saldoAcreedor > 0
-        ? item.saldoAcreedor
-        : item.saldoDeudor;
-
-    if (info.subtipo === "ingreso") {
-      ingresos += monto;
-      detalleIngresos.push({ cuenta: item.cuenta, monto });
-    }
-
-    if (info.subtipo === "costo") {
-      costos += monto;
-      detalleCostos.push({ cuenta: item.cuenta, monto });
-    }
-
-    if (info.subtipo === "gasto") {
-      gastos += monto;
-      detalleGastos.push({ cuenta: item.cuenta, monto });
+    // 🔥 Evaluamos por la realidad económica (el saldo real)
+    if (item.saldoAcreedor > 0) {
+      // Todo saldo acreedor en cuenta de resultado es una Ganancia (R.P.)
+      ingresos += item.saldoAcreedor;
+      detalleIngresos.push({ cuenta: item.cuenta, monto: item.saldoAcreedor });
+    } else if (item.saldoDeudor > 0) {
+      // Todo saldo deudor en cuenta de resultado es una Pérdida (R.N.)
+      if (info.subtipo === "costo") {
+        costos += item.saldoDeudor;
+        detalleCostos.push({ cuenta: item.cuenta, monto: item.saldoDeudor });
+      } else {
+        gastos += item.saldoDeudor;
+        detalleGastos.push({ cuenta: item.cuenta, monto: item.saldoDeudor });
+      }
     }
   });
 

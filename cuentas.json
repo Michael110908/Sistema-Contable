@@ -4,7 +4,7 @@
         "naturaleza": "deudora"
     },
     "Caja U$S": {
-      "tipo": "activo",
+        "tipo": "activo",
         "naturaleza": "deudora"
     },
     "Banco x C/C": {
@@ -95,37 +95,6 @@
         "tipo": "activo",
         "naturaleza": "deudora"
     },
-    "Sobrante de Caja":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-    "Sobrante de Mercadería":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-    "Deudores Morosos":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-    "Deudores en Gestión Judicial":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-    "Productos en Proceso":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-    "Productos Terminados":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-    "Materia Prima":{
-        "tipo": "activo",
-        "naturaleza":"deudora"
-    },
-
-
-
     "Proveedores": {
         "tipo": "pasivo",
         "naturaleza": "acreedora"
@@ -143,6 +112,10 @@
         "naturaleza": "acreedora"
     },
     "Iva - Débito Fiscal": {
+        "tipo": "pasivo",
+        "naturaleza": "acreedora"
+    },
+    "Anticipos Recibidos Por Adelantado No Devengados": {
         "tipo": "pasivo",
         "naturaleza": "acreedora"
     },
@@ -170,25 +143,6 @@
         "tipo": "pasivo",
         "naturaleza": "acreedora"
     },
-    "Faltante de Caja":{
-        "tipo":"pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Faltante de Mercadería":{
-        "tipo":"pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Mano de Obra":{
-        "tipo":"pasivo",
-        "naturaleza": "acreedora"
-    },
-    "Gastos Indirectos de Fabricación":{
-        "tipo":"pasivo",
-        "naturaleza": "acreedora"
-    },
-
-
-
     "Capital": {
         "tipo": "patrimonio",
         "naturaleza": "acreedora"
@@ -205,9 +159,6 @@
         "tipo": "patrimonio",
         "naturaleza": "acreedora"
     },
-
-
-
     "Ventas": {
         "tipo": "resultado",
         "subtipo": "ingreso",
@@ -233,9 +184,6 @@
         "subtipo": "ingreso",
         "naturaleza": "acreedora"
     },
-
-
-
     "Costo de Mercaderías Vendidas": {
         "tipo": "resultado",
         "subtipo": "costo",
@@ -247,6 +195,11 @@
         "naturaleza": "deudora"
     },
     "Gastos Generales": {
+        "tipo": "resultado",
+        "subtipo": "gasto",
+        "naturaleza": "deudora"
+    },
+    "Gastos Bancarios": {
         "tipo": "resultado",
         "subtipo": "gasto",
         "naturaleza": "deudora"
@@ -276,20 +229,104 @@
         "subtipo": "gasto",
         "naturaleza": "deudora"
     },
+    "Sobrante de Caja": {
+        "tipo": "resultado",
+        "subtipo": "ingreso",
+        "naturaleza": "acreedora"
+    },
+    "Faltante de Mercaderías": {
+        "tipo": "resultado",
+        "subtipo": "gasto",
+        "naturaleza": "deudora"
+    },
+    "Gastos a Pagar": {
+        "tipo": "pasivo",
+        "naturaleza": "acreedora"
+    },
+    "Alquileres a Pagar": {
+        "tipo": "pasivo",
+        "naturaleza": "acreedora"
+    },
+    "Intereses a Pagar": {
+        "tipo": "pasivo",
+        "naturaleza": "acreedora"
+    },
+    "Sueldos a Pagar": {
+        "tipo": "pasivo",
+        "naturaleza": "acreedora"
+    },
+    "Amortización Rodados": {
+        "tipo": "resultado",
+        "subtipo": "gasto",
+        "naturaleza": "deudora"
+    },
+    "Amortización Equipos de Computación": {
+        "tipo": "resultado",
+        "subtipo": "gasto",
+        "naturaleza": "deudora"
+    },
+    "Amortización Maquinaria": {
+        "tipo": "resultado",
+        "subtipo": "gasto",
+        "naturaleza": "deudora"
+    },
+    "Amortización Muebles y Útiles": {
+        "tipo": "resultado",
+        "subtipo": "gasto",
+        "naturaleza": "deudora"
+    },
+    "Amortización Instalaciones": {
+        "tipo": "resultado",
+        "subtipo": "gasto",
+        "naturaleza": "deudora"
+    },
+    "Amortización Inmuebles": {
+        "tipo": "resultado",
+        "subtipo": "gasto",
+        "naturaleza": "deudora"
+    },
     "Deudores Incobrables": {
         "tipo": "resultado",
         "subtipo": "gasto",
         "naturaleza": "deudora"
     },
-
-
-
     "Arca IVA Saldo": {
         "tipo": "dinamica",
         "naturaleza": "mixta"
     },
     "Cambio de Cotización": {
-        "tipo": "dinamica",
+        "tipo": "resultado",
+        "subtipo": "dinamica",
         "naturaleza": "mixta"
+    },
+    "Amortizaciones Acumuladas de Rodados": { 
+    "tipo": "activo", 
+    "subtipo": "regularizadora",
+    "naturaleza": "acreedora" 
+    },
+    "Amortizaciones Acumuladas de Maquinarias": { 
+        "tipo": "activo", 
+        "subtipo": "regularizadora",
+        "naturaleza": "acreedora" 
+    },
+    "Amortizaciones Acumuladas de Inmuebles": { 
+    "tipo": "activo", 
+    "subtipo": "regularizadora",
+    "naturaleza": "acreedora" 
+    },
+    "Amortizaciones Acumuladas de Instalaciones": { 
+        "tipo": "activo", 
+        "subtipo": "regularizadora",
+        "naturaleza": "acreedora" 
+    },
+    "Amortizaciones Acumuladas de Equipos de Computación": { 
+    "tipo": "activo", 
+    "subtipo": "regularizadora",
+    "naturaleza": "acreedora" 
+    },
+    "Amortizaciones Acumuladas de Muebles y Útiles": { 
+        "tipo": "activo", 
+        "subtipo": "regularizadora",
+        "naturaleza": "acreedora" 
     }
 }

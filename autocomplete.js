@@ -5,17 +5,13 @@ export function setupAutocomplete(input, cuentas) {
     const value = input.value.toLowerCase();
 
     if (container) container.remove();
-
     if (!value) return;
 
     container = document.createElement("div");
     container.classList.add("autocomplete-list");
 
-    const rect = input.getBoundingClientRect();
-
-    container.style.left = rect.left + "px";
-    container.style.top = rect.bottom + "px";
-    container.style.width = rect.width + "px";
+    // Ya no necesitamos calcular left, top o width con JS
+    // porque el CSS se encargará de posicionarlo respecto al TD
 
     Object.keys(cuentas)
       .filter(c => c.toLowerCase().includes(value))
@@ -32,10 +28,15 @@ export function setupAutocomplete(input, cuentas) {
         container.appendChild(item);
       });
 
-    document.body.appendChild(container);
+    // LA MAGIA ESTÁ ACÁ: Inyectamos el container en el padre del input (el TD)
+    // en lugar de document.body
+    input.parentNode.appendChild(container);
   });
 
-  document.addEventListener("click", () => {
-    if (container) container.remove();
+  document.addEventListener("click", (e) => {
+    // Solo cerramos si hacemos clic fuera del input
+    if (container && e.target !== input) {
+      container.remove();
+    }
   });
 }

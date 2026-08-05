@@ -319,3 +319,97 @@ ul {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* 🔧 SECCIÓN DE AJUSTES */
+.ajustes-card {
+  border-color: #93c5fd;
+  background: #eff6ff;
+}
+
+.hint {
+  color: #475569;
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+}
+
+/* ENTRADAS (Asientos / Ajustes) CON ACCIONES */
+.entrada-item {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.entrada-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.entrada-actions {
+  display: flex;
+  gap: 6px;
+}
+
+button.mini {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  background: #cbd5e1;
+  color: #1e293b;
+}
+
+button.mini.editar:hover {
+  background: #93c5fd;
+}
+
+button.mini.eliminar:hover {
+  background: #fca5a5;
+}
+
+/* BOTÓN CANCELAR EDICIÓN */
+button.cancelar {
+  background: #64748b;
+}
+
+/* ESTADO EDITANDO */
+.editando-label {
+  color: #1d4ed8;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+/* OCULTAR ELEMENTOS SIN QUITARLOS DEL DOM */
+.oculto {
+  display: none;
+}
+
+/* 🧾 HOJA DE TRABAJO */
+table.hoja-trabajo th,
+table.hoja-trabajo td {
+  padding: 0.4rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+table.hoja-trabajo .cuenta-nombre {
+  text-align: left;
+  white-space: normal;
+  min-width: 140px;
+}
+
+table.hoja-trabajo tfoot th {
+  background: #cbd5e1;
+}
+
+table.hoja-trabajo tr.fila-subtotal th {
+  background: #93c5fd;
+}
+
+table.hoja-trabajo tr.fila-resultado th {
+  background: #fde68a;
+}
+
+table.hoja-trabajo tr.fila-total th {
+  background: #86efac;
+}

@@ -15,11 +15,22 @@ export function generarBalanceGeneral(balance, cuentas, resultadoObj) {
 
     // 🔵 ACTIVO
     if (tipo === "activo") {
-      const monto = item.saldoDeudor;
+      if (info.subtipo === "regularizadora") {
+        // Si es regularizadora, tomamos su saldo acreedor y lo convertimos a negativo
+        const monto = -item.saldoAcreedor;
 
-      if (monto > 0) {
-        activo.push({ nombre: item.cuenta, monto });
-        totalActivo += monto;
+        if (item.saldoAcreedor > 0) {
+          activo.push({ nombre: item.cuenta, monto });
+          totalActivo += monto; // Al sumar un número negativo, matemáticamente se resta
+        }
+      } else {
+        // Comportamiento normal para el resto de los activos
+        const monto = item.saldoDeudor;
+
+        if (monto > 0) {
+          activo.push({ nombre: item.cuenta, monto });
+          totalActivo += monto;
+        }
       }
     }
 

@@ -23,6 +23,10 @@
   <button id="openModal" class="help-btn">❓ Cómo usar</button>
   <main class="container">
 
+    <!-- ============================================================ -->
+    <!-- LIBRO DIARIO -->
+    <!-- ============================================================ -->
+
     <!-- FORM -->
     <section class="card">
       <h2>➕ Cargar Asiento</h2>
@@ -41,14 +45,16 @@
       <div class="actions">
         <button id="agregarLinea">+ Línea</button>
         <button id="guardarAsiento" class="primary">Guardar Asiento</button>
+        <button id="cancelarEdicionAsiento" class="cancelar oculto">Cancelar edición</button>
       </div>
 
+      <p id="editandoAsientoLabel" class="editando-label oculto"></p>
       <p id="error" class="error"></p>
     </section>
 
     <!-- ASIENTOS -->
     <section class="card">
-      <h2>📋 Asientos</h2>
+      <h2>📋 Asientos (Libro Diario)</h2>
       <div id="listaAsientos" class="grid"></div>
     </section>
 
@@ -96,13 +102,13 @@
 
     <!-- RESULTADO -->
     <section class="card">
-      <h2>📈 Resultado del Ejercicio</h2>
+      <h2>📈 Resultado del Ejercicio (sin ajustes)</h2>
       <p class="resultado" id="resultadoFinal"></p>
     </section>
 
     <!-- BALANCE GENERAL -->
     <section class="card">
-      <h2>🏦 Balance General</h2>
+      <h2>🏦 Balance General (sin ajustes)</h2>
 
       <div class="balance-grid">
         <div>
@@ -127,6 +133,124 @@
         <p>Patrimonio: <span id="totalPatrimonio"></span></p>
       </div>
     </section>
+
+    <!-- ============================================================ -->
+    <!-- AJUSTES -->
+    <!-- ============================================================ -->
+
+    <section class="card ajustes-card">
+      <h2>🔧 Cargar Asiento de Ajuste</h2>
+      <p class="hint">
+        Primero generá los Libros y Balances de arriba (👆). Los ajustes se
+        aplican sobre el Balance de Sumas y Saldos ya calculado.
+      </p>
+
+      <table class="tabla-input">
+        <thead>
+          <tr>
+            <th>Cuenta</th>
+            <th>Debe</th>
+            <th>Haber</th>
+          </tr>
+        </thead>
+        <tbody id="ajusteBody"></tbody>
+      </table>
+
+      <div class="actions">
+        <button id="agregarLineaAjuste">+ Línea</button>
+        <button id="guardarAjuste" class="primary">Guardar Ajuste</button>
+        <button id="cancelarEdicionAjuste" class="cancelar oculto">Cancelar edición</button>
+      </div>
+
+      <p id="editandoAjusteLabel" class="editando-label oculto"></p>
+      <p id="errorAjuste" class="error"></p>
+    </section>
+
+    <section class="card">
+      <h2>📋 Asientos de Ajuste</h2>
+      <div id="listaAjustes" class="grid"></div>
+    </section>
+
+    <div class="center">
+      <button id="procesarAjustes" class="primary big">
+        🧮 Generar Ajustes y Balance Final
+      </button>
+    </div>
+
+    <!-- MAYOR DE AJUSTES -->
+    <section class="card">
+      <h2>📘 Libro Mayor de Ajustes</h2>
+      <p class="hint">Muestra únicamente los movimientos de los asientos de ajuste.</p>
+      <div id="mayorAjustesContainer" class="grid"></div>
+    </section>
+
+    <!-- HOJA DE TRABAJO / PREBALANCE -->
+    <section class="card">
+      <h2>🧾 Hoja de Trabajo (Prebalance)</h2>
+
+      <div class="table-wrapper">
+        <table class="hoja-trabajo">
+          <thead>
+            <tr>
+              <th rowspan="2">Cuenta</th>
+              <th colspan="2">Sumas</th>
+              <th colspan="2">Saldos</th>
+              <th colspan="2">Ajustes</th>
+              <th colspan="2">Sdos. Ajust.</th>
+              <th colspan="2">Estado Patrimonial</th>
+              <th colspan="2">Estado de Resultados</th>
+            </tr>
+            <tr>
+              <th>Debe</th>
+              <th>Haber</th>
+              <th>Deudor</th>
+              <th>Acreedor</th>
+              <th>Debe</th>
+              <th>Haber</th>
+              <th>Deudor</th>
+              <th>Acreedor</th>
+              <th>Activo</th>
+              <th>Pas.+P.N.</th>
+              <th>R.N.</th>
+              <th>R.P.</th>
+            </tr>
+          </thead>
+          <tbody id="hojaTrabajoBody"></tbody>
+          <tfoot id="hojaTrabajoFoot"></tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- BALANCE GENERAL CON AJUSTES -->
+    <section class="card">
+      <h2>🏦 Balance General (con ajustes)</h2>
+
+      <div class="balance-grid">
+        <div>
+          <h3>Activo</h3>
+          <ul id="activoListAj"></ul>
+        </div>
+
+        <div>
+          <h3>Pasivo</h3>
+          <ul id="pasivoListAj"></ul>
+        </div>
+
+        <div>
+          <h3>Patrimonio</h3>
+          <ul id="patrimonioListAj"></ul>
+        </div>
+      </div>
+
+      <div class="totales">
+        <p>Activo: <span id="totalActivoAj"></span></p>
+        <p>Pasivo: <span id="totalPasivoAj"></span></p>
+        <p>Patrimonio: <span id="totalPatrimonioAj"></span></p>
+      </div>
+
+      <p class="resultado" id="resultadoFinalAj"></p>
+    </section>
+
     <script type="module" src="./main.js"></script>
   </main>
   <div id="modal" class="modal">
@@ -162,22 +286,35 @@
   <li>No hace falta poner $</li>
 </ul>
 
-<h3>📋 Guardar asientos</h3>
+<h3>📋 Guardar, editar y eliminar asientos</h3>
 <ul>
-  <li>Presioná <b>"Guardar Asiento"</b>.</li>
-  <li>El sistema valida automáticamente.</li>
-  <li>Guarda un asiento completo primero, luego escribís el siguiente y todos los que tengas.</li>
+  <li>Presioná <b>"Guardar Asiento"</b> para agregarlo a la lista.</li>
+  <li>El sistema valida automáticamente Debe = Haber y que las cuentas existan.</li>
+  <li>Cada asiento de la lista tiene botones <b>✏️ Editar</b> y <b>🗑️ Eliminar</b>.</li>
+  <li>Al editar, el asiento se carga en el formulario; guardalo de nuevo para aplicar los cambios, o presioná <b>"Cancelar edición"</b>.</li>
+  <li>Los asientos y los ajustes se guardan automáticamente en tu navegador y <b>no se pierden al recargar la página</b>.</li>
 </ul>
 
 <h3>🚀 Procesar información</h3>
 <ul>
-  <li>Presioná <b>"Generar Libros y Balances"</b>.</li>
-  <li>Se generan automáticamente:</li>
+  <li>Presioná <b>"Generar Libros y Balances"</b> para calcular, a partir del Libro Diario:</li>
   <ul>
     <li>📘 Libro Mayor</li>
     <li>📊 Balance de Sumas y Saldos</li>
-    <li>📈 Resultado del Ejercicio</li>
-    <li>🏦 Balance General</li>
+    <li>📈 Resultado del Ejercicio (sin ajustes)</li>
+    <li>🏦 Balance General (sin ajustes)</li>
+  </ul>
+</ul>
+
+<h3>🔧 Asientos de Ajuste</h3>
+<ul>
+  <li>Una vez generado el Balance de Sumas y Saldos, podés cargar <b>Asientos de Ajuste</b> del mismo modo que los asientos normales.</li>
+  <li>También se pueden editar y eliminar, y se guardan en el navegador.</li>
+  <li>Presioná <b>"Generar Ajustes y Balance Final"</b> para calcular:</li>
+  <ul>
+    <li>📘 Libro Mayor de Ajustes (en formato T)</li>
+    <li>🧾 Hoja de Trabajo / Prebalance (Sumas, Saldos, Ajustes, Saldos Ajustados, Estado Patrimonial y Estado de Resultados)</li>
+    <li>🏦 Balance General con Ajustes</li>
   </ul>
 </ul>
 
@@ -194,15 +331,18 @@
   <li>Los totales deben coincidir.</li>
 </ul>
 
-<h3>📈 Resultado</h3>
+<h3>🧾 Hoja de Trabajo</h3>
 <ul>
-  <li>Ventas - Costos - Gastos = Resultado</li>
+  <li>El Saldo Ajustado de cada cuenta surge de sumar/restar los Ajustes al Saldo original.</li>
+  <li><b>R.N.</b> = Resultado Negativo (costos y gastos) — <b>R.P.</b> = Resultado Positivo (ingresos).</li>
+  <li>El Resultado del Ejercicio se calcula como R.P. − R.N. y se usa como cifra de cierre para igualar ambos pares de columnas.</li>
 </ul>
 
 <h3>🏦 Balance General</h3>
 <ul>
   <li>Activo = Pasivo + Patrimonio</li>
-  <li>El resultado del ejercicio se suma automáticamente.</li>
+  <li>El resultado del ejercicio se suma automáticamente al Patrimonio.</li>
+  <li>El Balance General "con ajustes" usa los Saldos Ajustados de la Hoja de Trabajo.</li>
 </ul>
 
 <h3>💡 Consejos y Consideraciones</h3>
