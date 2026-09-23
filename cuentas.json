@@ -63,6 +63,10 @@
         "tipo": "activo",
         "naturaleza": "deudora"
     },
+"Alquileres Pagados por Adelantado no Devengados": {
+        "tipo": "activo",
+        "naturaleza": "deudora"
+    },
     "Muebles y Útiles": {
         "tipo": "activo",
         "naturaleza": "deudora"
