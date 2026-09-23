@@ -242,6 +242,11 @@
         "subtipo": "ingreso",
         "naturaleza": "acreedora"
     },
+"Sobrante de Mercadería": {
+        "tipo": "resultado",
+        "subtipo": "ingreso",
+        "naturaleza": "acreedora"
+    },
     "Faltante de Mercaderías": {
         "tipo": "resultado",
         "subtipo": "gasto",
