@@ -263,6 +263,11 @@
         "subtipo": "gasto",
         "naturaleza": "deudora"
     },
+    "Donaciones Cedidas": {
+        "tipo": "resultado",
+        "subtipo": "gasto",
+        "naturaleza": "deudora"
+    },
     "Sueldos y Jornales": {
         "tipo": "resultado",
         "subtipo": "gasto",
