@@ -15,6 +15,18 @@
         "tipo": "activo",
         "naturaleza": "deudora"
     },
+    "Materia Prima": {
+        "tipo": "activo",
+        "naturaleza": "deudora"
+    },
+    "Productos en Proceso": {
+        "tipo": "activo",
+        "naturaleza": "deudora"
+    },
+    "Productos Terminados": {
+        "tipo": "activo",
+        "naturaleza": "deudora"
+    },
     "Banco x C/A": {
         "tipo": "activo",
         "naturaleza": "deudora"
@@ -96,6 +108,26 @@
         "naturaleza": "deudora"
     },
     "Socio E - Cuenta Aporte": {
+        "tipo": "activo",
+        "naturaleza": "deudora"
+    },
+    "Socio A - Cuota Suscripta": {
+        "tipo": "activo",
+        "naturaleza": "deudora"
+    },
+    "Socio B - Cuota Suscripta": {
+        "tipo": "activo",
+        "naturaleza": "deudora"
+    },
+    "Socio C - Cuota Suscripta": {
+        "tipo": "activo",
+        "naturaleza": "deudora"
+    },
+    "Socio D - Cuota Suscripta": {
+        "tipo": "activo",
+        "naturaleza": "deudora"
+    },
+    "Socio E - Cuota Suscripta": {
         "tipo": "activo",
         "naturaleza": "deudora"
     },
